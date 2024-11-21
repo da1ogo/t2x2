@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ДРЕЙК И МИНЗУРКИ</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        input[type="number"] {
+  width: 200px;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 25px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  border-radius: 25px;
+}
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <img src="toha.jpg" alt="Фото Тохи">
+    <h1>ДРЕЙК И МИНЗУРКИ</h1>
+    <h2>Задача by Тоха</h2>
+
+    <input type="number" id="initialWater" placeholder="Начальное кол-во воды (мл)">
+    <br>
+    <input type="number" id="waterAfterEvaporation" placeholder="Кол-во воды после испарения (мл)">
+    <br>
+    <input type="number" id="addedWater" placeholder="Добавленное кол-во воды (мл)">
+    <br>
+    <button onclick="calculate()">Рассчитать</button>
+    <p id="result"></p>
+
+    <audio id="music" src="song.mp3" preload="auto"></audio>
+
+    <script>
+        function calculate() {
+            let initialWater = parseInt(document.getElementById("initialWater").value);
+            let waterAfterEvaporation = parseInt(document.getElementById("waterAfterEvaporation").value);
+            let addedWater = parseInt(document.getElementById("addedWater").value);
+
+            if (isNaN(initialWater) || isNaN(waterAfterEvaporation) || isNaN(addedWater)) {
+                document.getElementById("result").innerText = "Пожалуйста, введите все значения.";
+                return;
+            }
+
+            let totalWater = waterAfterEvaporation + addedWater;
+            document.getElementById("result").innerText = "Общее количество воды в мензурке: " + totalWater + " мл";
+
+            // Воспроизведение музыки
+            const music = document.getElementById("music");
+            music.play();
+        }
+    </script>
+</body>
+</html>
